@@ -6,8 +6,8 @@
   "scripts": {
     "scss": "node-sass --output-style compressed -o src/assets/css src/assets/sass",
     "lint": "eslint src/assets/js",
-    "uglify": "mkdir -p dist/js && uglifyjs src/assets/js/**/*.js -m -o dist/js/app.js",
-    "copy": "cp -a src/. dist/",
+    "uglify": "mkdir -p docs/js && uglifyjs src/assets/js/**/*.js -m -o docs/js/app.js",
+    "copy": "cp -a src/. docs/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "shiz": {
