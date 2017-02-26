@@ -1,0 +1,35 @@
+{
+  "name": "jdallen.net",
+  "version": "1.0.0",
+  "description": "personal website",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o src/assets/css src/assets/sass",
+    "lint": "eslint src/assets/js",
+    "uglify": "mkdir -p dist/js && uglifyjs src/assets/js/**/*.js -m -o dist/js/app.js",
+    "copy": "cp -a src/. dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "shiz": {
+    "start": "npm run build && npm run serve",
+    "build": "node build.js",
+    "serve": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffallen6767/jdallen.net.git"
+  },
+  "author": "Jeffrey David Allen <jeffallen6767@hotmail.com> (http://jdallen.net/)",
+  "bugs": {
+    "url": "https://github.com/jeffallen6767/jdallen.net/issues"
+  },
+  "homepage": "https://github.com/jeffallen6767/jdallen.net#readme",
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.2",
+    "eslint-plugin-standard": "^2.0.1",
+    "node-sass": "^4.5.0",
+    "uglify-js": "^2.7.5"
+  }
+}
