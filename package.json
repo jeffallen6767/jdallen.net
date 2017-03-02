@@ -4,17 +4,27 @@
   "description": "personal website",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass --output-style compressed -o src/assets/css src/assets/sass",
-    "lint": "eslint src/assets/js",
-    "uglify": "mkdir -p docs/js && uglifyjs src/assets/js/**/*.js -m -o docs/js/app.js",
-    "copy": "cp -a src/. docs/",
+    "start": "npm run clean && npm run build && npm run dev",
+    "clean": "npm run remove && npm run create",
+    "remove": "rm -rf docs",
+    "create": "mkdir -p docs/css docs/fonts docs/images docs/js",
+    "build": "npm run images && npm run styles && npm run fonts && npm run scripts && npm run html",
+    "images": "npm run imagemin",
+    "imagemin": "imagemin src/images/* --o docs/images",
+    "styles": "npm run scss && npm run css",
+    "scss": "node-sass --output-style compressed -o src/css src/sass",
+    "css": "cp -a src/css/. docs/css/",
+    "fonts": "cp -a src/fonts/. docs/fonts/",
+    "scripts": "npm run js",
+    "js": "cp -a src/js/. docs/js",
+    "html": "cp src/index.html docs/index.html",
+    "dev": "node server.js",
+
+    "lint": "eslint src/js",
+    "uglify": "uglifyjs src/js/**/*.js -m -o docs/js/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "shiz": {
-    "start": "npm run build && npm run serve",
-    "build": "node build.js",
-    "serve": "node server.js"
-  },
+  "shiz": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeffallen6767/jdallen.net.git"
@@ -29,6 +39,8 @@
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.2",
     "eslint-plugin-standard": "^2.0.1",
+    "express": "^4.14.1",
+    "imagemin-cli": "^3.0.0",
     "node-sass": "^4.5.0",
     "uglify-js": "^2.7.5"
   }
