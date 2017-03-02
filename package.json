@@ -8,7 +8,7 @@
     "clean": "npm run remove && npm run create",
     "remove": "rm -rf docs",
     "create": "mkdir -p docs/css docs/fonts docs/images docs/js",
-    "build": "npm run images && npm run styles && npm run fonts && npm run scripts && npm run html",
+    "build": "npm run images && npm run styles && npm run fonts && npm run scripts && npm run files",
     "images": "npm run imagemin",
     "imagemin": "imagemin src/images/* --o docs/images",
     "styles": "npm run scss && npm run css",
@@ -17,11 +17,17 @@
     "fonts": "cp -a src/fonts/. docs/fonts/",
     "scripts": "npm run js",
     "js": "cp -a src/js/. docs/js",
+    "files": "npm run html && npm run license && npm run readme",
     "html": "cp src/index.html docs/index.html",
+    "license": "cp src/LICENSE.txt docs/LICENSE.txt",
+    "readme": "cp src/README.txt docs/README.txt",
+
     "dev": "node server.js",
 
+    "TODO": "add the following when ready...",
     "lint": "eslint src/js",
     "uglify": "uglifyjs src/js/**/*.js -m -o docs/js/app.js",
+    "cname": "cp src/CNAME docs/CNAME",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "shiz": {},
