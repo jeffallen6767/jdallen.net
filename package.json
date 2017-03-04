@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run clean && npm run build && npm run dev",
     "clean": "npm run remove && npm run create",
-    "remove": "rm -rf docs",
+    "remove": "del-cli docs -f",
     "create": "mkdir -p docs/css docs/fonts docs/images docs/js",
     "build": "npm run images && npm run styles && npm run fonts && npm run scripts && npm run files",
     "images": "npm run imagemin",
@@ -21,9 +21,7 @@
     "html": "cp src/index.html docs/index.html",
     "license": "cp src/LICENSE.txt docs/LICENSE.txt",
     "readme": "cp src/README.txt docs/README.txt",
-
     "dev": "node server.js",
-
     "TODO": "add the following when ready...",
     "lint": "eslint src/js",
     "uglify": "uglifyjs src/js/**/*.js -m -o docs/js/app.js",
@@ -41,6 +39,7 @@
   },
   "homepage": "https://github.com/jeffallen6767/jdallen.net#readme",
   "devDependencies": {
+    "del-cli": "^0.2.1",
     "eslint": "^3.16.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.2",
